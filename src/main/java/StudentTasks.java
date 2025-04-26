@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class StudentTasks {
@@ -183,14 +184,45 @@ public class StudentTasks {
     // Задание 26: Количество четных и нечетных цифр
     public static class Task26 {
         public static void countEvenAndOddDigits() {
-            // Реализация здесь
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Введите число: ");
+            int number = scanner.nextInt();
+            int evenCount = 0, oddCount = 0;
+            while (number != 0) {
+                int digit = number % 10;
+                if (digit % 2 == 0) {
+                    evenCount++;
+                } else {
+                    oddCount++;
+                }
+                number /= 10;
+            }
+            System.out.println("Четных цифр: " + evenCount);
+            System.out.println("Нечетных цифр: " + oddCount);
         }
     }
 
     // Задание 27: Циклический поворот массива
     public static class Task27 {
         public static void rotateArray() {
-            // Реализация здесь
+            {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Введите количество элементов массива: ");
+                    int n = scanner.nextInt();
+                    int[] array = new int[n];
+                    System.out.println("Введите элементы массива:");
+                    for (int i = 0; i < n; i++) {
+                        array[i] = scanner.nextInt();
+                    }
+                    System.out.print("Введите количество позиций для поворота: ");
+                    int k = scanner.nextInt();
+                    k = k % n;
+                    int[] rotatedArray = new int[n];
+                    for (int i = 0; i < n; i++) {
+                        rotatedArray[(i + k) % n] = array[i];
+                    }
+                    System.out.println(Arrays.toString(rotatedArray));
+            }
         }
     }
 
